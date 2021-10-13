@@ -103,8 +103,8 @@ analytics:
 author:
   name             : "Jomirae"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "기록하는 일상"
+  location         : "Seoul,Republic of Korea"
   email            :
   links:
     - label: "Email"
@@ -124,7 +124,7 @@ author:
       # url: "https://github.com/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      # url: "https://www.instagram.com/721mm/"
 
 # Site Footer
 footer:
