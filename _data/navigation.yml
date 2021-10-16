@@ -1,10 +1,8 @@
 # main links
 main:
-  #- title: "Home"
-  #  url: "/"
-  - title: "Archive"
-    url: /year-archive/
-  - title: "Category"
-    url: "/categories/"
-  - title: "Tags"
-    url: /tags/
+  - title: "블로그 방문하기"
+    url: https://devinlife.com/
+  - title: "Categories"
+    url: /categories/
+  - title: "About"
+    url: /about/
