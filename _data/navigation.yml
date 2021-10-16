@@ -1,9 +1,7 @@
 # main links
 main:
-  - title: "블로그 방문하기"
+  - title: "Archive"
     url: https://devinlife.com/
-  - title: "코드스테이츠 AIB Study"
-    url: /categories/코드스테이츠 AIB Study/
   - title: "Categories"
     url: /categories/
   - title: "Tags"
