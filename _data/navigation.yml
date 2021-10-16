@@ -1,8 +1,8 @@
 # main links
 main:
   - title: "Archive"
-    url: https://devinlife.com/
-  - title: "Computer Vision"
+    url: /Archive/
+  - title: "Category"
     url: /categories/Computer Vision
   - title: "Tags"
     url: /tags/
