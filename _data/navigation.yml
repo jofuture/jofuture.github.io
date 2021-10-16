@@ -2,8 +2,8 @@
 main:
   - title: "Archive"
     url: https://devinlife.com/
-  - title: "Categories"
-    url: /categories/
+  - title: "Computer Vision"
+    url: /categories/Computer Vision
   - title: "Tags"
     url: /tags/
   - title: "About"
