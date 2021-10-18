@@ -2,8 +2,8 @@
 main:
   - title: "Archive"
     url: /Archive/
-  - title: "Category"
-    url: /categories/Computer Vision
+  - title: "Categories"
+    url: /categories/
   - title: "Tags"
     url: /tags/
   - title: "About"
