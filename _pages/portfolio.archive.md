@@ -1,6 +1,7 @@
 ---
-title: "Portfolio"
+title: "Posts by Portfolio"
 permalink: /portfolio/
-layout: Portfolio
+layout: portfolio
 author_profile: true
 ---
+
