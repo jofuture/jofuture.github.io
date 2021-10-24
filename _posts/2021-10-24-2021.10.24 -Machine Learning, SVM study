@@ -1,0 +1,139 @@
+## **머신러닝이란?**
+
+Machine Learning : Learning from Data (데이터로부터 학습하도록 컴퓨터를 프로그래밍하는 과학 또는 예술)
+
+Learning : To improve its performance on future tasks after making observations about the world.
+
+전통적인 AI 방법들과 가장 차별화 되는 점은 바로 학습 데이터가 많아질수록 성능이 좋아진다는 것.
+
+"데이터 마이닝이란, 머신러닝 기술을 적용해서 대용량의 데이터를 분석하여 패턴을 추출해 내는 과정"
+
+## **전통적인 AI 방법**
+
+## **지도학습의 종류**
+
+-   Linear Regression
+-   Logistic Regression
+-   Support Vector Machine (SVM)
+-   Naive Bayes
+-   Gaussian Process
+-   K-Nearest Neighbors (KNN)
+-   Decision Tree, Random Forest
+-   Neural network
+
+데이터의 형태, 데이터셋의 크기 등에 따라서 다른 알고리즘 사용
+
+중요한 것은 모든 경우에 다 잘 작동하는 그런 알고리즘은 없다.
+
+## **머신러닝의 주요 도전과제**
+
+-   Bad Data   
+    1\. 충분하지 않은 양의 훈련 데이터 : 간단한 문제라도 수천 개의 데이터가 필요!  
+    2\. 대표성 없는 훈련 데이터 : 샘플이 작으면 샘플링 Noise가 생기고, 매우 큰 샘플도  
+    표본 추출 방법이 잘못되면 대표성을 띠지 못할 수 있다. (Sampling Bias)  
+    3\. 낮은 품질의 데이터 : 이상치, 결측치, 에러값을 정제하는 데에 가장 많은 시간이 소요된다.
+-   Bad Algorithm  
+    1\. 관련 없는 특성 : Feature Selection과 Feature Extraction을 통해 문제에 관련이 높은 특성만 사용하자  
+    \- Parameter 수를 적게 하거나, 모델에 제약을 가하여 단순화  
+    \- 훈련 데이터를 더 많이 모은다.  
+    \- 훈련 데이터의 잡음을 줄인다. (오류 데이터 수정 및 이상치 제거)
+
+## **머신러닝 프로젝트 Process**
+
+1.  데이터를 분석한다 (EDA)  
+    Scatter Plot, Box Plot 등을 통해 데이터의 모양을 관찰한다.
+2.  모델을 선택한다.  
+    아래의 세가지 기준을 고려하여 데이터에 가장 적합한 후보 모델을 선택한다.  
+    1\. 지도 학습인지  
+    2\. 데이터가 업데이트 되는 주기 생각  
+    3\. 어떻게 일반화 하는가. 모델기반
+3.  훈련 데이터로 모델을 훈련시킨다.  
+    TraIn Data를 이용하여 효용 함수를 최대화 하거나, 비용함수를 최소화할 수 있는 Parameter를 학습한다.
+4.  새로운 데이터에 모델을 적용해 예측을 하고(Inference), 이 모델이 잘 일반화 되길 기대한다.  
+    훈련 시 모델이 한번도 보지 않은 데이터를 활용하여 성능을 확인한다.
+
+## **EDA Process** 
+
+-   **데이터 구조 head()**   
+    목적 : 전체 데이터의 느낌 보기 (기본값 : 처음 5행 출력)
+-   **Feature 개요 info()**  
+    목적: 데이터에 대한 간략한 설명  
+    \- 전체 row tn  
+    \- 컬럼명 (순서 index)  
+    \- 각 feature의 null이 아닌 값의 개수  
+    \- 각 feature의 data type  
+    활용 팁  
+    \- Memory 절약을 위해 dtype을 수정해 볼 수 있음  
+    \- null값의 비율이 높을 경우 Column을 drop 하는 것을 고려해 볼수 있음
+-   **Categorical value탐색 value\_counts()**  
+    목적 : 범주형 컬럼 내 category를 확인하고, 각 category별 data개수 확인  
+    활용팁  
+    \- 카테고리의 개수가 너무 적은 카테고리는 분석 대상에서 제외 검토 가능
+-   **Numeric value 탐색 describe() hist()**  
+    목적 : 숫자형 특성의 요약정보  
+    활용팁  
+    \- 데이터 분포를 참조하여 Scalling 수행 (종모양이 되도록)  
+    \- 컬럼의 단위 조정
+-   **데이터 이해를 위한 탐색과 시각화**  
+    상관 관계 조사  
+    \- 상관계수란? 두 변수 사이의 연관성을 수치적으로 객관하하여 방향성과 강도를 표현하는 방법  
+    \- 상관계수는 기울기와 상관 없음  
+    특성 조합으로 실험 ( = 파생 변수 만들기 )  
+    \- " 여러가지 가설을 세워서 변수를 만들고 확인해 보는 단계"  
+    \- 단위 변환, 표현 형식 변환 , 요약 통계량 변환, 변수 결합 등의 방법 사용
+-   **변수 간 상관관계 확인 방법**  
+    연속형 X 연속형 : Scatter Plot  
+    범주형 X 범주형 : 막대 그래프, 100% 기준 누적 막대 그래프  
+    범주형 X 연속형 : 범주별 Histogram
+-   **텍스트와 범주형 특성 다루기**  
+    OrdinalEncoder()  
+    1\. 숫자의 특성 때문에 가중치의 차이가 생김  
+    2\. 트리 기반 모델을 제외한 경우에는 one hot encoding 사용 필요   
+    3\. 1개의 feature로 변환 가능  
+    OneHotEncoder()  
+    1\. 숫자의 크고 작은 정도가 가중치가 영향을 미치지 않음  
+    2\. 최소 (n-1)개의 희소행렬을 사용하여 메모리가 낭비되고, 성능이 하락할 수 있음  
+    3\. Label Encoding 을 선행하여 수행해야 함
+
+## **SVM (Support Vecetor Machine)**
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fdmlmip%2FbtriFjn4trY%2Ft0qhikywFMKjK6LrM3XNSk%2Fimg.png">
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbMCNLu%2FbtriAy0WNQd%2Fre3VjcA1vMMtLk2ckbGAKk%2Fimg.png">
+
+-   딥러닝 이전에 가장 인기있던 학습 알고리즘
+-   SVM은 두 범주를 잘 분류하면서 **마진(margin)**이 최대화된 **초평면(hyperplane)**을 찾는 기법이다. 기본적으로  
+    선형분류를 한다는 것이죠. 하지만 어떤 직선을 그어도 두 범주를 완벽하게 분류하기 어려운 경우도 많다.  
+    Kernel-SVM은 이 문제를 해결하기 위해 제안됬다. 먼저 아래 그림을 보겠습니다.
+-   Maximum margin separator를 찾는 것이 목표
+-   수학적으로 잘 정의되어 Convex Optimization을 통해 해결
+-   Linearly inseparable한 경우 : Kenel trick을 통해 데이터를 고차원으로 보낸 후 분류
+-   Input feature가 저차원이고 학습 데이터가 적을 때 유용  
+    <-> 반대인 경우 Neural Network를 통해 분류  
+    학습 데이터가 적을 경우 Neural Network 에서 오버피팅된 Decisiion Boundary를 찾을 가능성이 높다  
+    \-> model capacity 가 크기 떄문
+-   Support Vector란, 위 그림 속에서 점선으로 되어 있는 선형위에 존재하는 벡터들을 뜻한다. 
+
+#### **SVM의 구성요소**
+
+| 구성요소 | 설명 |
+| --- | --- |
+| 결정경계 | 데이터 분류의 기준이 되는 경계 |
+| 초평면 | n 차원의 공간의 (n-1) 차원 평면 |
+| 마진 | 결정 경계에서서포트 벡터까지의 거리   최적의 결정 경계는 마진을 최대화 ( 모델 최적화 방법 ) |
+| 서포트 벡터 | 학습 데이터 중에서 결정 경계와 가장 가까이에 있는 데이터들의 집합 |
+| 슬랙 변수 | 샘플에 대한 마진 오류 허용 정도 지정 |
+
+#### **Hard Margin vs Soft Margin**
+
+#### Hard Margin
+
+-   마진의 안쪽이나 바깥쪽에 절대로 잘못 분류된 오 분류를 허용하지 않는 SVM
+-   노이즈로 인하여 최적의 결정 경계를 잘못 구할 수도 있고, 못 찾을 경우도 발생할 수가 있음
+-   이상치에 민감
+
+#### Soft Margin
+
+-   마진의 안쪽이나 바깥쪽에 잘못된 오 분류를 유연하게 일부 허용하는 SVM
+-   하드마진 SVM은 현실적으로 적용하기가 어려우므로 소프트 마진 SVM을 주로 이용ㄶ이허용
+-   하이퍼 파라미터 C(Cost)로 정도를 조절 가능하며, 작을수록 오분류를 더 많이 허용
